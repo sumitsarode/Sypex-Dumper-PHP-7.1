@@ -1281,7 +1281,7 @@ class SypexDumper
                             }
                             for ($k = 0; $k < $fields; ++$k) {
                                 if (!isset($row[ $k ])) {
-                                    $row[ $k ] = '\N';
+                                     $row[ $k ] = 'NULL'; // \N Removed in Mysql 8.0 $row[ $k ] = '\N';
                                 } elseif ($notNum[ $k ]) {
                                     $row[ $k ] = '\'' . mysqli_real_escape_string($GLOBALS['mysqlilink'], $row[ $k ]) . '\'';
                                 } // TODO: Потестить скорость эскэйпинга строк
